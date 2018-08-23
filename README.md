@@ -1,5 +1,5 @@
 # neighborhood-map
-> This project is a test of Nanodegree Front-end Web Developer
+  > This project is a test of Nanodegree Front-end Web Developer
 
 What is this project?
 =====================
@@ -21,5 +21,6 @@ How to Run The project
   - Run the project with ```npm start``` or ```yarn start```
   - Open http://localhost:3000 in your browser
 
-  ## License
-    [MIT](https://choosealicense.com/licenses/mit/)
+ License
+ ========
+   [MIT](https://choosealicense.com/licenses/mit/)
