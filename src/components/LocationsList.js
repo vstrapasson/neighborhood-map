@@ -1,18 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Location from './Location';
 
-const places = [
-  {title: "Shopping"},
-  {title: "Casa"},
-  {title: "Empresa"},
-];
-
-const LocationsList = (props) => (
+const LocationsList = ({locations, handleMarkerClick}) => (
   <ul className="locations-list shadow">
     {
-      places.map(location => <Location location={location} />)
+      locations.map(location => <Location
+        handleMarkerClick={handleMarkerClick}
+        key={location.title} location={location} />)
     }
   </ul>
 );
+
+LocationsList.protoTypes = {
+  locations: PropTypes.array.isRequired,
+  handleMarkerClick: PropTypes.func.isRequired,
+}
 
 export default LocationsList;

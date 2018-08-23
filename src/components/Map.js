@@ -1,25 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class Map extends Component {
+import { withScriptjs, withGoogleMap, GoogleMap } from "react-google-maps"
 
-  constructor(props) {
-    super(props);
-    this.maps = window.google.maps;
-  }
+import MyMarker from './MyMarker';
 
-  componentDidMount() {
-    const map = new this.maps.Map(document.querySelector('.map'), {
-        center: {lat: -34.397, lng: 150.644},
-      zoom: 8
-    });
-  }
+const Map = withScriptjs(withGoogleMap((props) =>
+  <GoogleMap
+    defaultZoom={13}
+    defaultCenter={{ lat: 40.7391253, lng: -74.0057827 }}
+  >
+    {props.locations.map(location => <MyMarker
+      key={location.title}
+      location={location}
+      selectedLocation={props.selectedLocation}
+      handleMarkerClick={props.handleMarkerClick}
+      position={location.position} />)}
+  </GoogleMap>
+));
 
-  render() {
-    return (
-      <div className="map">Map</div>
-    );
-  }
-
-}
+Map.propTypes = {
+  locations: PropTypes.array.isRequired
+};
 
 export default Map;
