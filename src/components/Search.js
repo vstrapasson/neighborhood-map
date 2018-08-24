@@ -11,7 +11,7 @@ class Search extends Component {
   render() {
     return (
       <div className="search-container">
-        <input onChange={e => this.onSearchChange(e.target.value)} className="shadow" type="search" name="search" placeholder="Type to search..."/>
+        <input aria-label="Search" onChange={e => this.onSearchChange(e.target.value)} className="shadow" type="search" name="search" placeholder="Type to search..."/>
         <LocationsList handleMarkerClick={this.props.handleMarkerClick} locations={this.props.locations} />
       </div>
     );
