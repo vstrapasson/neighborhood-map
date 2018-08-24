@@ -7,14 +7,18 @@ class MyMarker extends Component {
 
   state = {
     isOpen: false,
+    animation: 2
   }
 
   componentWillReceiveProps(nextProps) {
     const { selectedLocation, location } = nextProps;
-    if (selectedLocation) {
-      this.setState({isOpen: selectedLocation.title === location.title});
+    if (selectedLocation && selectedLocation.title === location.title) {
+      this.setState({
+        isOpen: true,
+        animation: 1
+      });
     } else {
-      this.setState({ isOpen: false })
+      this.setState({ isOpen: false, animation: 0 })
     }
   }
 
@@ -32,7 +36,7 @@ class MyMarker extends Component {
         onClick={ _ => {
           this.onToggleOpen(location)
         }}
-        animation={2}
+        animation={this.state.animation}
         position={location.position} >
         {this.state.isOpen &&
           <InfoWindow onCloseClick={ _ => this.onToggleOpen(null)}>
