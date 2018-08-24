@@ -3,6 +3,7 @@ import './App.css';
 
 import Map from './components/Map';
 import Sidebar from './components/Sidebar';
+import ErrorBoundary from './components/ErrorBoundary';
 
 import * as Foursquare from './utils/Foursquare';
 
@@ -46,15 +47,17 @@ class App extends Component {
           locations={this.state.locations}
         />
         <div className="map-container">
-          <Map
-            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuoe2iEGQK7eTFqoF3FCcHcVPUh7JUF20"
-            loadingElement={<div style={{ height: `100%` }} />}
-            containerElement={<div id="map" style={{ height: `100%` }} />}
-            mapElement={<div style={{ height: `100%` }} />}
-            locations={this.state.locations}
-            selectedLocation={this.state.selectedLocation}
-            handleMarkerClick={l => this.handleMarkerClick(l)}
-          />
+          <ErrorBoundary>
+            <Map
+              googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuoe2iEGQK7eTFqoF3FCcHcVPUh7JUF20"
+              loadingElement={<div style={{ height: `100%` }} />}
+              containerElement={<div id="map" style={{ height: `100%` }} />}
+              mapElement={<div style={{ height: `100%` }} />}
+              locations={this.state.locations}
+              selectedLocation={this.state.selectedLocation}
+              handleMarkerClick={l => this.handleMarkerClick(l)}
+            />
+          </ErrorBoundary>
         </div>
       </div>
     );
