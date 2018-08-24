@@ -39,7 +39,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <main className="App" role="Application">
         <Sidebar
           handleFilter={s => this.handleFilter(s)}
           handleMarkerClick={l => this.handleMarkerClick(l)}
@@ -59,7 +59,7 @@ class App extends Component {
             />
           </ErrorBoundary>
         </div>
-      </div>
+      </main>
     );
   }
 }

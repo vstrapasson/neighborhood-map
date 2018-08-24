@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Location from './Location';
 
 const LocationsList = ({locations, handleMarkerClick}) => (
-  <ul className="locations-list shadow">
+  <ul role="menubar" className="locations-list shadow">
     {
       locations.map(location => <Location
         handleMarkerClick={handleMarkerClick}

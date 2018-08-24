@@ -6,7 +6,7 @@ const LocationDetails = ({location, location: {details}}) => {
   }
 
   return (
-    <div className="location-details">
+    <div role="Complementary" className="location-details">
       <div className="title">{location.title}</div>
       <div>{details.description}</div>
       <div>Price: {details.price ? details.price.message : 'Not informed'}</div>
