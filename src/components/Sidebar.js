@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Search from './Search';
 import LocationInfo from './LocationInfo';
 
-class Sidebar extends Component {
-  render() {
-    const { locations, selectedLocation, handleMarkerClick, handleFilter } = this.props;
+const Sidebar = ({ locations, selectedLocation, handleMarkerClick, handleFilter }) => {
     let component;
 
     if (selectedLocation) {
@@ -19,8 +17,6 @@ class Sidebar extends Component {
         {component}
       </aside>
     );
-  }
-
 }
 
 export default Sidebar;
