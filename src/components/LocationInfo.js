@@ -11,7 +11,15 @@ class LocationInfo extends PureComponent {
     const details = location && location.details ? <LocationDetails location={location} /> : <div>Loading...</div>
 
     return <div className="location">
-      {showCloseBtn && <div role="button" className="close shadow clickable" onClick={ _ => handleMarkerClick(null) }>Close</div>}
+      {showCloseBtn && <div
+        tabIndex={0}
+        role="button"
+        className="close shadow clickable"
+        onKeyPress={e => {
+          if(e.key === 'Enter')
+            handleMarkerClick(null);
+        }}
+        onClick={ _ => handleMarkerClick(null) }>Close</div>}
       <div role="contentinfo" className="info">
         {details}
       </div>
